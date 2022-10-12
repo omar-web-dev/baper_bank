@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS</title>
+    <!-- ------ font awesam link ------ -->
+    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    <!-- -------tailwind----------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ---- my style link ----- -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+<body>
+    <h1 class="text-5xl text-center mt-10 ">Gets same <span class="font-semibold text-green-600">Moooooney</span>!!!</h1>
+    <section class="grid grid-cols-3 text-white text-center gap-4 col-auto w-4/5 mx-auto mt-5">    
+        <div class="py-5 bg-yellow-500 rounded-md">
+            <h2>Deposit</h2>
+            <p>$<span id="totalDeposit">000</span></p>
+        </div>
+        <div class="py-5 bg-red-400 rounded-md">
+            <h2>Withdraw</h2>
+            <p>$<span id="totalWithdraw">000</span></p>
+        </div>
+        <div class="py-5 bg-blue-600 rounded-md">
+            <h2>Balance</h2>
+            <p>$ <span id="mainBlance">1200</span></p>
+        </div>
+    </section>
+    <section class="grid grid-cols-2 text-white text-center gap-4 col-auto w-4/5 mx-auto mt-5">    
+        <div class="py-5 bg-yellow-500 rounded-md">
+            <h2 class="mb-2 text-xl">Pleas Deposit Now</h2>
+            <input class="text-black  text-sm outline-none px-10 py-1" type="text" name="" id="depositFlied" placeholder="$ Enter a Deposit amount"><br>
+            <input id="depositBtn" class="bg-yellow-600 py-1 px-3 rounded-md mt-2" type="submit" value="Deposit">
+        </div>
+        <div class="py-5 bg-red-400 rounded-md">
+            <h2 class="mb-2 text-xl">Need Withdraw</h2>
+            <input id="withdrawFlied" class="text-black text-sm outline-none px-10 py-1" type="text" name=""  id="withdrawFlied" placeholder="$ Enter a Withdraw amount"><br>
+            <input id="withdrawBtn" class="bg-pink-500 py-1 px-3 rounded-md mt-2" type="submit" value="Withdraw">
+        </div>
+    </section>
+    <!-- ----- font awesame js link --- -->
+    <!-- <script src="js/brands.min.js"></script> -->
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('depositBtn').addEventListener('click', function(){
+            let depositFlied = document.getElementById('depositFlied')
+            let depositElement = document.getElementById('totalDeposit')
+            let depositValue = depositFlied.value;
+            let a = depositElement.innerText = depositValue;
+            let belance = document.getElementById('mainBlance');
+            const mainBalece = belance.innerText;
+            belance.innerText = mainBalece + a
+            console.log(mainBalece);
+            depositFlied.value = ''
+        })
+        document.getElementById('withdrawBtn').addEventListener('click', function(){
+            let withdrawFlied = document.getElementById('withdrawFlied')
+            let totalWithdraw = document.getElementById('totalWithdraw')
+            let withdrawValue = withdrawFlied.value;
+            let b = totalWithdraw.innerText = withdrawValue;
+            let belance = document.getElementById('mainBlance');
+            const mainBalece = belance.innerText;
+            belance.innerText = mainBalece - b
+            console.log(mainBalece);
+            console.log();
+            withdrawFlied.value = ''
+
+        })
+
+    </script>
+    
+</body>
+</html>
